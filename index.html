@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @property --percentage {
+    initial-value: 0%;
+    inherits: false;
+    syntax: "<percentage>";
+  }
+  
+.circle1{
+    background: conic-gradient(rgb(255, 255, 255) var(--percentage), rgb(255, 2, 2) 0);
+    border-radius: 50%;
+    width: 40vmin;
+    height: 40vmin;
+    animation: timer 60s infinite steps(60);
+    -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  }
+  
+  @keyframes timer {
+    to {
+      --percentage: 100%;
+    }
+  }
+
+ #circle2{
+    background: conic-gradient(rgb(255, 255, 255) var(--percentage), rgb(255, 2, 2) 0);
+    border-radius: 50%;
+    width: 40vmin;
+    height: 40vmin;
+    animation: timermin 3600s infinite steps(60);
+    -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  }
+
+  @keyframes timermin {
+    to {
+      --percentage: 100%;
+    }
+  }
+  
+  body {
+    height: 100vh;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    box-sizing: border-box;
+    padding: 2rem;
+  }
+    </style>
+</head>
+<body>
+    <div class="circle1"></div>
+    <h1 class="ss">99</h1>
+    <div id="circle2"></div>
+    <h1 class="mm">00</h1>
+</div>
+</body>
+
+<script>
+
+//get current time in js
+
+function clock(){
+    var  today = new Date();
+
+    var minutes = today.getMinutes();
+    var seconds = today.getSeconds();
+
+    document.querySelector('.ss').innerHTML = seconds;
+    document.querySelector('.mm').innerHTML = minutes;
+}
+
+var updateClock = setInterval(clock, 1000);
+
+
+
+
+</script>
+</html>
